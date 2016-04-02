@@ -82,14 +82,19 @@ Plugin 'mbbill/undotree'
 Plugin 'terryma/vim-expand-region'
 Plugin 'rking/ag.vim'                           "查找
 Plugin 'scrooloose/syntastic'                   "静态检查
-Plugin 'Tagbar'                                 "符号列表
-Plugin 'vim-scripts/TagHighlight'               "  
+Plugin 'majutsushi/tagbar'                      "符号列表
+Plugin 'vim-scripts/TagHighlight'               "高亮符号
 Plugin 'scrooloose/nerdtree'                    "文件目录树
 Plugin 'scrooloose/nerdcommenter'               "代码注释 <leader> c<space>
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'janlay/NERD-tree-project'
 Plugin 'matchit.zip'                            "匹配成对符号
+
+Plugin 'cespare/vim-golang'
 Plugin 'fatih/vim-go'                           "go插件
+Plugin 'dgryski/vim-godef'
+Plugin 'Blackrush/vim-gocode'                   "go自动补全
+
 Plugin 'vimim/vimim'                            "输入法
 Plugin 'auto_mkdir'
 Plugin 'cecutil'
@@ -123,14 +128,13 @@ Plugin 'edkolev/promptline.vim'
 Plugin 'Gist.vim'
 Plugin 'gitv'
 Plugin 'airblade/vim-gitgutter'                 " 显示git修改
-Plugin 'cespare/vim-golang'
-Plugin 'Blackrush/vim-gocode'
 "Plugin 'grep.vim'
 "Plugin 'jslint.vim'
 Plugin 'html5.vim'
 "Plugin 'IndentAnything'
 Plugin 'asciidoc.vim'
 Plugin 'instant-markdown.vim'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'Yggdroot/indentLine'
 Plugin 'axiaoxin/vim-json-line-format'
@@ -603,7 +607,7 @@ if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
     let g:indent_guides_enable_on_vim_startup = 1
     let g:indent_guides_guide_size            = 1
     let g:indent_guides_auto_colors           = 0
-    let g:instant_markdown_autostart          = 1
+    let g:instant_markdown_autostart          = 0
     "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
     "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 endif
@@ -771,13 +775,40 @@ endif
 " }}}
 
 " Tagbar {{{
-if isdirectory(expand("~/.vim/bundle/Tagbar"))
+if isdirectory(expand("~/.vim/bundle/tagbar"))
+    nmap <silent> <F3> :TagbarToggle<CR>
     let g:tagbar_left=0
     let g:tagbar_singleclick=1
     let g:tagbar_autoshowtag=1
     let g:tagbar_show_visibility=1
     let g:tagbar_ctags_bin="/usr/bin/ctags"
-    nmap <silent> <F3> :TagbarToggle<CR>
+    let g:tagbar_type_go = {
+        \ 'ctagstype' : 'go',
+        \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions',
+        \ ],
+        \ 'sro' : '.',
+        \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype',
+        \ },
+                \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n',
+        \ },
+        \ 'ctagsbin'  : 'gotags',
+        \ 'ctagsargs' : '-sort -silent',
+        \ }
 endif
 " }}}
 
