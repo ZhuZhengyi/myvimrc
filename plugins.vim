@@ -703,7 +703,7 @@ endif
 if isdirectory(expand("~/.vim/bundle/nerdtree"))
     let g:NERDTree_title      = "[NERD]"
     let g:NERTreeWinPos       = 'left'
-    let g:NERDTreeIgnore      = ['\.vim$','\~$','\.o$','\.obj$','\.git','\.pyc$','\.so$','\.exe$','\.lib$']
+    let g:NERDTreeIgnore      = ['\~$','\.o$','\.obj$','\.git','\.pyc$','\.so$','\.exe$','\.lib$']
     let g:NERDTreeChDirMode   = 2
     let NERDTreeShowBookmarks = 1
     let NERDTreeShowFiles     = 1
@@ -725,7 +725,6 @@ endif
 " NERD_commenter.vim {{{
 if isdirectory(expand("~/.vim/bundle/NERD_commenter"))
     let NERDShutUP=1
-    
 endif
 " }}}
 
