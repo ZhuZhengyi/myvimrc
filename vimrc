@@ -1,5 +1,8 @@
 
 if filereadable(expand("~/.vim/plugins.vim"))
     source ~/.vim/plugins.vim
-endif 
+endif
 
+if filereadable(expand("~/.vim/vimrc.local"))
+    source ~/.vim/vimrc.local
+endif

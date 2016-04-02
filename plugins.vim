@@ -307,9 +307,9 @@ imap ;; <ESC>:w<CR>             " 返回Normal模式 "
 
 " authorinfo {{{
 if isdirectory(expand("~/.vim/bundle/authorinfo"))
-    let g:vimrc_author   = 'Justice'
-    let g:vimrc_email    = 'justice_103@126.com'
-    let g:vimrc_homepage = 'http://zhuzhengyi.github.com'
+    let g:vimrc_author   = 'xxx'
+    let g:vimrc_email    = 'xxx@xxx.com'
+    let g:vimrc_homepage = 'http://xxx.com'
 endif
 " }}}
 
@@ -569,17 +569,11 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
 endif
 " }}}
 
-" DoxygenToolkit {{{
-if isdirectory(expand("~/.vim/bundle/DoxygenToolkit.vim/"))
-    let g:DoxygenToolkit_authorName = "Justice"
-    let g:DoxygenToolkit_licenseTag = "GPLv2"
-endif
-" }}}
 
 " DoxygenToolkit {{{
 if isdirectory(expand("~/.vim/bundle/DoxygenToolkit.vim/"))
-    let g:DoxygenToolkit_authorName = "Justice"
-    let g:DoxygenToolkit_licenseTag = "GPLv2"
+    let g:DoxygenToolkit_authorName = "authorname"
+    let g:DoxygenToolkit_licenseTag = "license"
 endif
 " }}}
 
