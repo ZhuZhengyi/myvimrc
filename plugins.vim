@@ -89,6 +89,8 @@ Plugin 'scrooloose/nerdcommenter'               "代码注释 <leader> c<space>
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'janlay/NERD-tree-project'
 Plugin 'matchit.zip'                            "匹配成对符号
+Plugin 'ekalinin/Dockerfile.vim'                "Docker
+Plugin 'vimcn/vimcdoc'                          "中文帮助文档
 
 Plugin 'cespare/vim-golang'
 Plugin 'fatih/vim-go'                           "go插件
