@@ -32,12 +32,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Color Scheme {{{
 Plugin 'desert256.vim'
-Plugin 'joedicastro/vim-molokai256'
+Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 " }}}
 
 " Plugins {{{
-Plugin 'mhinz/vim-startify'                     "个性化VIM启动画面
+Plugin 'mhinz/vim-startify'                     "个性化启动画面
 "Plugin 'SuperTab'                               "Tab补全
 "Plugin 'AutoComplPop'                          "自动补全
 "Plugin 'Rip-Rip/clang_complete'
@@ -51,8 +51,7 @@ Plugin 'vimomni'
 Plugin 'lua_omni'
 
 Plugin 'Shougo/neocomplete.vim'                 "自动补全
-"Plugin 'Shougo/neocomplcache.vim'              "自动补全
-Plugin 'Shougo/neosnippet.vim'                  "代码片段
+Plugin 'Shougo/neosnippet.vim'                  "代码片段, ctrl+k选择片段
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Shougo/neoinclude.vim'
 Plugin 'Shougo/neopairs.vim'
@@ -60,10 +59,13 @@ Plugin 'Shougo/neco-vim'
 Plugin 'Shougo/neco-syntax'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'                    "vim shell
-Plugin 'Shougo/unite.vim'
-Plugin 'chemzqm/unite-git-log'
+Plugin 'Shougo/unite.vim'                       "
+Plugin 'Shougo/unite-outline'                   "大纲插件, :Unite outline 
+Plugin 'chemzqm/unite-git-log'                  "Unite 查看git log 日志 
 
 Plugin 'tpope/vim-fugitive'                     "git 插件
+Plugin 'easygit'
+Plugin 'airblade/vim-gitgutter'                 "显示git修改
 Plugin 'a.vim'                                  "切换头文件 .c <---> .h
 Plugin 'authorinfo'                             "作者信息
 Plugin 'vim-airline/vim-airline'                "状态栏
@@ -73,19 +75,20 @@ Plugin 'jiangmiao/auto-pairs'                   "自动成对生成(),{},[]
 Plugin 'kien/rainbow_parentheses.vim'           "彩色括号
 Plugin 'ppwwyyxx/vim-PinyinSearch'              "拼音搜中文
 Plugin 'bronson/vim-trailing-whitespace'        "行尾空格, <C-SPACE>
-Plugin 'ctrlpvim/ctrlp.vim'                     "CTRL+P,快速查找文件
-Plugin 'tacahiroy/ctrlp-funky'                  "快速查找函数
-Plugin 'dyng/ctrlsf.vim'                        "全局单词查找
-Plugin 'easygit'
-Plugin 'Gundo'                                  "撤销操作
+
+Plugin 'ctrlpvim/ctrlp.vim'                     "快速查找文件, ctrl+p
+Plugin 'tacahiroy/ctrlp-funky'                  "快速查找函数, <leader>fu
+Plugin 'dyng/ctrlsf.vim'                        "全局单词查找, ctrl+f f
+
+Plugin 'sjl/gundo.vim'                          "撤销操作
 Plugin 'mbbill/undotree'
 Plugin 'terryma/vim-expand-region'
 Plugin 'rking/ag.vim'                           "查找
 Plugin 'scrooloose/syntastic'                   "静态检查
 Plugin 'majutsushi/tagbar'                      "符号列表
-Plugin 'vim-scripts/TagHighlight'               "高亮符号
+Plugin 'vim-scripts/taghighlight'               "高亮符号,宏
 Plugin 'scrooloose/nerdtree'                    "文件目录树
-Plugin 'scrooloose/nerdcommenter'               "代码注释 <leader> c<space>
+Plugin 'scrooloose/nerdcommenter'               "代码注释, <leader> c<space>
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'janlay/NERD-tree-project'
 Plugin 'matchit.zip'                            "匹配成对符号
@@ -121,7 +124,8 @@ Plugin 'django.vim'
 Plugin 'DfrankUtil'
 Plugin 'DoxygenToolkit.vim'
 Plugin 'EasyGrep'
-Plugin 'EasyMotion'                             " 快速跳转
+"Plugin 'EasyMotion'                             " 快速跳转
+Plugin 'easymotion/vim-easymotion'
 Plugin 'exvim/main'
 Plugin 'FencView.vim'                           "文件代码自动检测
 Plugin 'fcitx.vim'
@@ -129,7 +133,6 @@ Plugin 'FuzzyFinder'
 Plugin 'edkolev/promptline.vim'
 Plugin 'Gist.vim'
 Plugin 'gitv'
-Plugin 'airblade/vim-gitgutter'                 " 显示git修改
 "Plugin 'grep.vim'
 "Plugin 'jslint.vim'
 Plugin 'html5.vim'
@@ -137,10 +140,12 @@ Plugin 'html5.vim'
 Plugin 'asciidoc.vim'
 Plugin 'instant-markdown.vim'
 Plugin 'plasticboy/vim-markdown'
+"Plugin 'Markdown'
 Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'Yggdroot/indentLine'
 Plugin 'axiaoxin/vim-json-line-format'
 Plugin 'Javascript-Indentation'
+Plugin 'pangloss/vim-javascript'
 Plugin 'JavaScript-syntax'
 "Plugin 'jiangmiao/auto-pairs'
 Plugin 'jsbeautify'
@@ -150,7 +155,6 @@ Plugin 'L9'
 Plugin 'less.vim'
 Plugin 'mako.vim--Torborg'
 "Plugin 'Mark'
-Plugin 'Markdown'
 "Plugin 'minibufexpl.vim'
 Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'moin.vim'
@@ -212,14 +216,13 @@ if isdirectory(expand("~/.vim/bundle/vim-colors-solarized/"))
 endif
 " }}}
 
-" molokai256 {{{
-if isdirectory(expand("~/.vim/bundle/vim-molokai256"))
-    let g:molokai_original = 1
+" molokai {{{
+if isdirectory(expand("~/.vim/bundle/molokai"))
+    "let g:molokai_original = 1
     let g:rehash256 = 1
-    colorscheme molokai256
+    colorscheme molokai
 endif
 " }}}
-
 
 syntax on                       "开启语法高亮
 " font && encoding {{{
@@ -325,6 +328,21 @@ if isdirectory(expand("~/.vim/bundle/vim-trailing-whitespace"))
 endif
 " }}}
 
+" easymotion {{{
+if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
+    let g:EasyMotion_smartcase = 1          " 忽略大小写
+    let g:EasyMotion_cursor_highlight = 1
+    " 更改快捷键
+    map f <Plug>(easymotion-prefix)
+    map ff <Plug>(easymotion-s)
+    map fs <Plug>(easymotion-f)
+    map fl <Plug>(easymotion-lineforward)
+    map fj <Plug>(easymotion-j)
+    map fk <Plug>(easymotion-k)
+    map fh <Plug>(easymotion-linebackward)
+endif
+" }}}
+
 " neosnips {{{
 if isdirectory(expand("~/.vim/bundle/neosnippet.vim"))
     " Plugin key-mappings.
@@ -342,16 +360,14 @@ if isdirectory(expand("~/.vim/bundle/neosnippet.vim"))
 
     " For conceal markers.
     if has('conceal')
-          set conceallevel=2 concealcursor=niv
-      endif
+        set conceallevel=2 concealcursor=niv
+    endif
 
     " Enable snipMate compatibility feature.
     let g:neosnippet#enable_snipmate_compatibility = 1
 
     " Tell Neosnippet about the other snippets
     let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-
 endif
 " }}}
 
@@ -467,10 +483,10 @@ if isdirectory(expand("~/.vim/bundle/neocomplete.vim"))
     "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
     " For cursor moving in insert mode(Not recommended)
-    inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-    inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-    inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-    inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+    "inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+    "inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+    "inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+    "inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
     " Or set this.
     "let g:neocomplete#enable_cursor_hold_i = 1
     " Or set this.
@@ -694,7 +710,7 @@ endif
 " }}}
 
 " Gundo {{{
-if isdirectory(expand("~/.vim/bundle/Gundo"))
+if isdirectory(expand("~/.vim/bundle/gundo.vim"))
     nnoremap <Leader>u :GundoToggle<CR>
 endif
 " }}}
