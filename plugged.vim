@@ -46,8 +46,8 @@ Plug 'Shougo/neopairs.vim'                          "自动生成(),{}等成对�
 Plug 'Shougo/neco-vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/unite.vim'                             "
-Plug 'Shougo/unite-outline'                         "大纲插件, :Unite outline 
-Plug 'chemzqm/unite-git-log'                        "Unite 查看git log 日志 
+Plug 'Shougo/unite-outline'                         "大纲插件, :Unite outline
+Plug 'chemzqm/unite-git-log'                        "Unite 查看git log 日志
 Plug 'honza/vim-snippets'                           "代码片段
 
 Plug 'scrooloose/syntastic'                         "静态检查
@@ -337,7 +337,7 @@ if isdirectory(expand("~/.vim/plugged/vim-expand-region/"))
 endif
 " }}}
 
-" vim-trailing-whitespace {{{
+ "vim-trailing-whitespace {{{
 if isdirectory(expand("~/.vim/plugged/vim-trailing-whitespace"))
     map <leader><space> :FixWhitespace<cr>
 endif
@@ -652,7 +652,7 @@ endif
 " }}}
 
 " clang_complete {{{
-if isdirectory(expand("~/.vim/plugged/clang_complete")) 
+if isdirectory(expand("~/.vim/plugged/clang_complete"))
     let g:clang_auto_select        = 1
     let g:clang_complete_auto      = 1
     let g:clang_complete_copen     = 1
@@ -754,12 +754,12 @@ if isdirectory(expand("~/.vim/plugged/syntastic/"))
     let g:syntastic_warning_symbol           = '*'
     "let g:syntastic_enable_balloons          = 1
     let g:syntastic_cpp_include_dirs         = ['/usr/include/c++/v1','/usr/include/c++/4.8','/usr/include']
-    
+
     let g:syntastic_javascript_checkers      = ['jshint']
     let g:syntastic_go_checkers              = ['golint']
     let g:syntastic_python_checkers           = ['flake8']
     let g:syntastic_python_flake8_quiet_messages = {
-            \ "regex": '\m\[E221]',
+            \ "regex": '\m\[E221|E901]',
         \ }
 endif
 " }}}
@@ -851,7 +851,7 @@ if isdirectory(expand("~/.vim/plugged/vim-golang/"))
     endif
     if ! executable('gotags')
         execute "silent ! go get -u github.com/jstemmer/gotags"
-    endif 
+    endif
 endif
 " }}}
 
